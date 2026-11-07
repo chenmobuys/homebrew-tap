@@ -2,9 +2,9 @@
 cask "neylu" do
   arch arm: "arm64", intel: "x86_64"
 
-  version "0.1.0-alpha.2"
-  sha256 arm:   "3586c55f1336f3775a93276359112a9c218b14a5e6edb89ac65928445c564d50",
-         intel: "19ea7e33361a379c5c588322968cef99afd529492e601633bae68de7436bc9d6"
+  version "0.1.0-alpha.3"
+  sha256 arm:   "8044536042b47d4d1fe82894518545be5d714969966ff3511549d4b5e4bb3909",
+         intel: "81d30dc61c03f1e1a80616ea8b67a38ca634e80b026cb0bfe990625781f02964"
 
   url "https://github.com/chenmobuys/Neylu/releases/download/v#{version}/Neylu-#{version}-#{arch}.dmg"
   name "Neylu"

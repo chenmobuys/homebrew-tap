@@ -2,9 +2,9 @@
 cask "neylu" do
   arch arm: "arm64", intel: "x86_64"
 
-  version "0.1.0-alpha.4"
-  sha256 arm:   "1b5a638e2c6ffc4fb9f2868edacc06985e10f15516a0daef40dca70b1af56e64",
-         intel: "e9a1be60813c57802001c318f3c1fe2fa35ea2d729b858b9eee3d4911442c6a9"
+  version "0.1.0-alpha.5"
+  sha256 arm:   "33e537cb3b2a5b9fb3c299d56acb6c39154bf4ce75575374f7811de2003e024b",
+         intel: "07cd5542acdabcc93ea9f66b7391e853e96e8bd40e1466f85182d143578d6377"
 
   url "https://github.com/chenmobuys/Neylu/releases/download/v#{version}/Neylu-#{version}-#{arch}.dmg"
   name "Neylu"
@@ -12,7 +12,7 @@ cask "neylu" do
   homepage "https://github.com/chenmobuys/Neylu"
 
   auto_updates true
-  depends_on macos: :ventura
+  depends_on macos: :monterey
 
   app "Neylu.app"
 

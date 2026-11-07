@@ -24,8 +24,15 @@ cask "neylu" do
   ]
 
   caveats <<~EOS
-    Neylu is distributed through its own tap. Alpha previews are not notarized by Apple.
-    For first-launch instructions, see:
-      https://github.com/chenmobuys/Neylu#readme
+    Neylu 尚未经 Apple 公证 / Neylu is not notarized by Apple.
+    如果首次启动被拦截，确认信任此版本后执行：
+    If macOS blocks the first launch and you trust this release, run:
+      xattr -dr com.apple.quarantine "#{appdir}/Neylu.app"
+    然后重新打开 Neylu / Then reopen Neylu.
+
+    也可在“系统设置 → 隐私与安全性”选择“仍要打开”。
+    Alternatively, choose Open Anyway in System Settings > Privacy & Security.
+    此命令不会自动执行 / This command is not run automatically.
+    https://github.com/chenmobuys/Neylu#readme
   EOS
 end

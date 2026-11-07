@@ -14,6 +14,22 @@ brew install --cask chenmobuys/tap/neylu
 
 The current release is an Alpha preview, ad hoc signed and not notarized by Apple. See [Neylu’s first-launch instructions](https://github.com/chenmobuys/Neylu#readme) if macOS prevents it from opening. No Apple Developer membership is required. This cask does not remove quarantine attributes or disable Gatekeeper.
 
+安装后会直接显示首次打开说明；若 macOS 拦截，确认信任此版本后执行以下命令，再重新打开 Neylu。
+Homebrew prints first-launch instructions after installation. If macOS blocks Neylu and you trust this release, run the following, then reopen it:
+
+```sh
+xattr -dr com.apple.quarantine "/Applications/Neylu.app"
+```
+
+You can also install and explicitly allow the first launch with one command:
+
+```sh
+brew install --cask chenmobuys/tap/neylu &&
+xattr -dr com.apple.quarantine "/Applications/Neylu.app"
+```
+
+These examples use the default Applications directory. If you use `--appdir`, follow the actual path printed by Homebrew. Alternatively, choose **Open Anyway** in **System Settings → Privacy & Security**.
+
 ```sh
 brew update
 brew upgrade --cask --greedy neylu

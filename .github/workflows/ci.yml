@@ -1,0 +1,32 @@
+name: Cask checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: cask-checks-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  style:
+    runs-on: macos-26
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Check Ruby syntax and Homebrew style
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: '1'
+          HOMEBREW_NO_ENV_HINTS: '1'
+        run: |
+          shopt -s nullglob
+          casks=(Casks/*.rb)
+          if [ "${#casks[@]}" -eq 0 ]; then
+            echo 'No casks yet; the release workflow will publish the first one.'
+            exit 0
+          fi
+          for cask in "${casks[@]}"; do ruby -c "$cask"; done
+          brew style "${casks[@]}"
